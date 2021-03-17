@@ -34,7 +34,7 @@ interface NASAApiService {
     fun getImagesData(@QueryMap params: Map<String, String>): Deferred<ImageDataNetworkResponse>
 }
 
-object IconsApi {
+object ImagesAPI {
     val retrofitService: NASAApiService by lazy {
         retrofit.create(NASAApiService::class.java)
     }
