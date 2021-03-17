@@ -1,5 +1,6 @@
 package com.gurpreet.singh.nasa_picture_app.network
 
+import com.gurpreet.singh.nasa_picture_app.data.ImageData
 import com.gurpreet.singh.nasa_picture_app.data.ImageDataNetworkResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -12,7 +13,6 @@ import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
 private const val BASE_URL = "https://mrandrioddev.github.io/"
-
 
 private val client = OkHttpClient.Builder().apply {
     addInterceptor(IconsInterceptor())
@@ -31,7 +31,7 @@ private val retrofit = Retrofit.Builder()
 
 interface NASAApiService {
     @GET("mockApis.github.io")
-    fun getImagesData(@QueryMap params: Map<String, String>): Deferred<ImageDataNetworkResponse>
+    fun getImagesData(): Deferred<ImageDataNetworkResponse>
 }
 
 object ImagesAPI {
