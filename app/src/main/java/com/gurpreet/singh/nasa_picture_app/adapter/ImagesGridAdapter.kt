@@ -10,6 +10,7 @@ import com.gurpreet.singh.nasa_picture_app.databinding.GridImageItemBinding
 class ImagesGridAdapter(val clickListener: ImageClickListener):
         androidx.recyclerview.widget.ListAdapter<ImageData, ImagesGridAdapter.ViewHolder>(ImageDiffCallback()) {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
