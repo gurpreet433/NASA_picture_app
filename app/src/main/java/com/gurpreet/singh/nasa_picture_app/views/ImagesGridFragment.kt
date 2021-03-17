@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.gurpreet.singh.nasa_picture_app.R
+import com.gurpreet.singh.nasa_picture_app.databinding.FragmentImagesGridBinding
 
 class ImagesGridFragment : Fragment() {
 
@@ -13,8 +15,10 @@ class ImagesGridFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_images_grid, container, false)
+        val binding: FragmentImagesGridBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_images_grid, container, false)
+
+        return binding.root
     }
 
 }
