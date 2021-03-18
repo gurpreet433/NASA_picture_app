@@ -6,11 +6,11 @@ import com.bumptech.glide.Glide
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
 
 @BindingAdapter("loadImage")
-fun ImageView.setPremiumOrFreeBadge(item: ImageData) {
-    item?.let {
+fun ImageView.setPremiumOrFreeBadge(url: String?) {
+    url?.let {
 
         Glide.with(this)
-                .load(item.url)
+                .load(url)
                 .into(this)
     }
 }
