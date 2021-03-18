@@ -1,13 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.ImageDetailsFragment">
 
-    <TextView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imageData"
+            type="com.gurpreet.singh.nasa_picture_app.data.ImageData" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_medium"
+            tools:context=".views.ImageDetailsFragment">
+
+            <ImageView
+                android:id="@+id/hd_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                android:scaleType="fitXY"
+                app:loadImage="@{imageData.hdurl}"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:fontFamily="sans-serif"
+                android:maxLength="32"
+                android:textSize="16sp"
+                android:text="@{imageData.title}"
+                app:layout_constraintEnd_toEndOf="@+id/hd_image"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/hd_image"
+                app:layout_constraintTop_toBottomOf="@+id/hd_image"
+                tools:text="title" />
+
+            <TextView
+                android:id="@+id/copyright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@{imageData.copyright}"
+                android:textSize="@dimen/normal_text_size"
+                app:layout_constraintEnd_toStartOf="@+id/title"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                tools:text="copyright" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textSize="@dimen/normal_text_size"
+                android:text="@{imageData.date}"
+                app:layout_constraintStart_toStartOf="@+id/copyright"
+                app:layout_constraintTop_toBottomOf="@+id/copyright"
+                tools:text="date" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/normal_text_size"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:layout_constraintStart_toStartOf="@+id/date"
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@{imageData.explanation}"
+                tools:text="explanation" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
