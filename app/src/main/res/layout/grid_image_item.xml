@@ -15,6 +15,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:onClick="@{()->clickListener.onClick(imageData)}"
         android:layout_margin="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

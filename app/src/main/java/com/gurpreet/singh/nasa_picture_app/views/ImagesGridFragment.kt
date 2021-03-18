@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.gurpreet.singh.nasa_picture_app.R
 import com.gurpreet.singh.nasa_picture_app.adapter.ImagesGridAdapter
 import com.gurpreet.singh.nasa_picture_app.databinding.FragmentImagesGridBinding
@@ -27,6 +28,8 @@ class ImagesGridFragment : Fragment() {
         val adapter = ImagesGridAdapter(ImagesGridAdapter.ImageClickListener { imageData ->
 
             Toast.makeText(context, "clicked $imageData", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(ImagesGridFragmentDirections
+                .actionImagesGridFragmentToImageDetailsFragment(imageData))
         })
 
         binding.nasaImagesRecyclerView.adapter = adapter
