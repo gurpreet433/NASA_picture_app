@@ -21,13 +21,13 @@ class ImagesGridViewModel: ViewModel() {
     }
 
     private fun getImageData(){
-        var resultStatus = ""
+        lateinit var resultStatus : String
 
         coroutineScope.launch {
             var getServerResponseDeferred = ImagesAPI.retrofitService.getImagesData()
             resultStatus = try {
                 var serverResponse = getServerResponseDeferred.await()
-                imagesList.value = serverResponse.listImages
+                imagesList.value = serverResponse
                 "Success"
 
             } catch (t:Throwable){
