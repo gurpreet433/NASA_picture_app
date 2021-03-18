@@ -22,12 +22,12 @@
 
         <ImageView
             android:id="@+id/thumbnail_img"
-            android:layout_width="@dimen/image_width"
+            android:layout_width="@dimen/image_width_thumbnail"
             android:layout_height="@dimen/image_height"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="fitXY"
-            app:loadImage="@{imageData}"
+            app:loadImage="@{imageData.url}"
             tools:src="@drawable/ic_launcher_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
