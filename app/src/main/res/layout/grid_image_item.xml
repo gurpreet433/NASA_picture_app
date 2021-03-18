@@ -15,15 +15,18 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_margin="@dimen/margin_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/thumbnail_img"
             android:layout_width="@dimen/image_width"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/image_height"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            app:loadImage="@{imageData}"
             tools:src="@drawable/ic_launcher_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
