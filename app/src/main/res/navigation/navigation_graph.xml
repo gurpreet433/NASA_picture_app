@@ -9,5 +9,18 @@
         android:id="@+id/imagesGridFragment"
         android:name="com.gurpreet.singh.nasa_picture_app.views.ImagesGridFragment"
         android:label="fragment_images_grid"
-        tools:layout="@layout/fragment_images_grid" />
+        tools:layout="@layout/fragment_images_grid" >
+        <action
+            android:id="@+id/action_imagesGridFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailsFragment"
+        android:name="com.gurpreet.singh.nasa_picture_app.views.ImageDetailsFragment"
+        android:label="fragment_image_details"
+        tools:layout="@layout/fragment_image_details" >
+        <argument
+            android:name="imageData"
+            app:argType="com.gurpreet.singh.nasa_picture_app.data.ImageData" />
+    </fragment>
 </navigation>
