@@ -10,13 +10,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.QueryMap
 
 private const val BASE_URL = "https://mrandrioddev.github.io/"
 
-private val client = OkHttpClient.Builder().apply {
-    addInterceptor(IconsInterceptor())
-}.build()
+private val client = OkHttpClient.Builder().build()
 
 private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -31,7 +28,7 @@ private val retrofit = Retrofit.Builder()
 
 interface NASAApiService {
     @GET("mockApis.github.io")
-    fun getImagesData(): Deferred<ImageDataNetworkResponse>
+    fun getImagesData(): Deferred<List<ImageData>>
 }
 
 object ImagesAPI {
