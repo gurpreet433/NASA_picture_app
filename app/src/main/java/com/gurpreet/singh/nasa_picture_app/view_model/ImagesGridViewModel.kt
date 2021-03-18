@@ -28,7 +28,7 @@ class ImagesGridViewModel: ViewModel() {
             resultStatus = try {
                 var serverResponse = getServerResponseDeferred.await()
                 imagesList.value = serverResponse
-                "Success"
+                "Success " + serverResponse.get(0)
 
             } catch (t:Throwable){
                 "Failure" + t.message
