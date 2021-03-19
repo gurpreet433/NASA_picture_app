@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
 
 @BindingAdapter("loadImage")
-fun ImageView.setPremiumOrFreeBadge(url: String?) {
+fun ImageView.loadImageFromUrl(url: String?) {
     url?.let {
 
         Glide.with(this)
