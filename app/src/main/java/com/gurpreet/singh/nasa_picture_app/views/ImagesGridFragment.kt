@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.gurpreet.singh.nasa_picture_app.R
 import com.gurpreet.singh.nasa_picture_app.adapter.ImagesGridAdapter
+import com.gurpreet.singh.nasa_picture_app.data.ImageData
 import com.gurpreet.singh.nasa_picture_app.databinding.FragmentImagesGridBinding
 import com.gurpreet.singh.nasa_picture_app.view_model.ImagesGridViewModel
 
@@ -29,7 +30,7 @@ class ImagesGridFragment : Fragment() {
 
             Toast.makeText(context, "clicked $imageData", Toast.LENGTH_SHORT).show()
             findNavController().navigate(ImagesGridFragmentDirections
-                .actionImagesGridFragmentToImageDetailsFragment(imageData))
+                .actionImagesGridFragmentToImageDetailsFragment(imageData, viewModel.imagesList.value!!.toTypedArray()))
         })
 
         binding.nasaImagesRecyclerView.adapter = adapter

@@ -22,5 +22,8 @@
         <argument
             android:name="imageData"
             app:argType="com.gurpreet.singh.nasa_picture_app.data.ImageData" />
+        <argument
+            android:name="imageDataList"
+            app:argType="com.gurpreet.singh.nasa_picture_app.data.ImageData[]" />
     </fragment>
 </navigation>
