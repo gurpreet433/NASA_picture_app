@@ -12,17 +12,13 @@ import androidx.navigation.fragment.navArgs
 import com.gurpreet.singh.nasa_picture_app.R
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
 import com.gurpreet.singh.nasa_picture_app.databinding.FragmentImageDetailsBinding
+import com.gurpreet.singh.nasa_picture_app.factory.ImageDetailsViewModelFactory
 import com.gurpreet.singh.nasa_picture_app.view_model.ImageDetailsViewModel
 
 class ImageDetailsFragment : Fragment() {
     private val args: ImageDetailsFragmentArgs by navArgs()
     private lateinit var viewModel: ImageDetailsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
+    private lateinit var viewModelFactory: ImageDetailsViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,11 +28,9 @@ class ImageDetailsFragment : Fragment() {
 
         binding.imageData = args.imageData
 
-        var imageDataList: ArrayList<ImageData> = args.imageDataList.toCollection(ArrayList())
+        viewModelFactory = ImageDetailsViewModelFactory(args.imageData, args.imageDataList.toCollection(ArrayList()))
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ImageDetailsViewModel::class.java)
 
-        Log.i("abc", "${imageDataList.indexOf(args.imageData)}")
-
-        viewModel = ViewModelProvider(this).get(ImageDetailsViewModel::class.java)
 
         return binding.root
     }
