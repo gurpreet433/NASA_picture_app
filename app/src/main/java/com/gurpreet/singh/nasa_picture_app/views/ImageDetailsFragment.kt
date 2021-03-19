@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.gurpreet.singh.nasa_picture_app.R
+import com.gurpreet.singh.nasa_picture_app.adapter.ViewPagerAdapter
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
 import com.gurpreet.singh.nasa_picture_app.databinding.FragmentImageDetailsBinding
 import com.gurpreet.singh.nasa_picture_app.factory.ImageDetailsViewModelFactory
@@ -26,11 +27,12 @@ class ImageDetailsFragment : Fragment() {
         val binding: FragmentImageDetailsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_image_details, container, false)
 
-        binding.imageData = args.imageData
+        val adapter = ViewPagerAdapter ( args.imageDataList.toCollection(ArrayList()))
+        binding.viewPager.adapter = adapter
+      // set view pager position
 
         viewModelFactory = ImageDetailsViewModelFactory(args.imageData, args.imageDataList.toCollection(ArrayList()))
         viewModel = ViewModelProvider(this, viewModelFactory).get(ImageDetailsViewModel::class.java)
-
 
         return binding.root
     }
