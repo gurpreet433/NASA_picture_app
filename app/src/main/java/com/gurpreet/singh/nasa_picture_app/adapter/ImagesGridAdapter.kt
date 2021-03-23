@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
 import com.gurpreet.singh.nasa_picture_app.databinding.GridImageItemBinding
 
-class ImagesGridAdapter(val clickListener: ImageClickListener):
+class ImagesGridAdapter(private val clickListener: ImageClickListener):
         androidx.recyclerview.widget.ListAdapter<ImageData, ImagesGridAdapter.ViewHolder>(ImageDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +19,7 @@ class ImagesGridAdapter(val clickListener: ImageClickListener):
         holder.bind(getItem(position), clickListener)
     }
 
-    class ViewHolder private constructor(val binding: GridImageItemBinding) :
+    class ViewHolder private constructor(private val binding: GridImageItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: ImageData, clickListener: ImageClickListener) {
@@ -49,12 +49,6 @@ class ImagesGridAdapter(val clickListener: ImageClickListener):
 
     class ImageClickListener(val clickListener: (imageData: ImageData) -> Unit) {
         fun onClick(imageData: ImageData) =
-                imageData.let {
-                    clickListener(imageData)
-                }
+            clickListener(imageData)
     }
-
-
-
-
 }
