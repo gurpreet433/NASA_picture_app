@@ -13,10 +13,9 @@ fun ImageView.loadImageFromUrl(url: String?) {
     url?.let {
 
         Glide.with(this)
-                .load(url)
+            .load(url)
             .apply(RequestOptions().placeholder(R.drawable.loading_animation))
             .error(R.drawable.ic_broken_image)
-                .into(this)
+            .into(this)
     }
 }
-
