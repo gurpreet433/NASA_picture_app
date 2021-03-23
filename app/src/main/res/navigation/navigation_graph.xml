@@ -18,7 +18,7 @@
         android:id="@+id/imageDetailsFragment"
         android:name="com.gurpreet.singh.nasa_picture_app.views.ImageDetailsFragment"
         android:label="Image Details"
-        tools:layout="@layout/fragment_image_details" >
+        tools:layout="@layout/fragment_image_viewpager" >
         <argument
             android:name="imageData"
             app:argType="com.gurpreet.singh.nasa_picture_app.data.ImageData" />
