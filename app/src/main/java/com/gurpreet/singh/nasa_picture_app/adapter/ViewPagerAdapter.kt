@@ -14,15 +14,18 @@ class ViewPagerAdapter(val imageDataList: ArrayList<ImageData>) :
     inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_image_details_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.layout_image_details_item, parent, false)
         return ViewPagerViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         var currentImageData = imageDataList[position]
         holder.itemView.title.text = currentImageData.title
+        holder.itemView.copyright.text = currentImageData.copyright
+        holder.itemView.date.text = currentImageData.date
+        holder.itemView.explanation.text = currentImageData.explanation
         holder.itemView.hd_image.loadImageFromUrl(currentImageData.hdurl)
-
     }
 
     override fun getItemCount(): Int {
