@@ -6,7 +6,4 @@ import com.gurpreet.singh.nasa_picture_app.data.ImageData
 
 class ImageDetailsViewModel(imageData: ImageData, imageDataList: ArrayList<ImageData>): ViewModel() {
 
-
-
-
 }

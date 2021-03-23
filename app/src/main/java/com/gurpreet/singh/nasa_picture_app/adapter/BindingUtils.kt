@@ -1,6 +1,7 @@
 package com.gurpreet.singh.nasa_picture_app.adapter
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -18,3 +19,4 @@ fun ImageView.loadImageFromUrl(url: String?) {
                 .into(this)
     }
 }
+

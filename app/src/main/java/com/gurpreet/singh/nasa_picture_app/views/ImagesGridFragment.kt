@@ -28,7 +28,7 @@ class ImagesGridFragment : Fragment() {
 
         val adapter = ImagesGridAdapter(ImagesGridAdapter.ImageClickListener { imageData ->
 
-            Toast.makeText(context, "clicked $imageData", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "clicked $imageData", Toast.LENGTH_SHORT).show()
             findNavController().navigate(ImagesGridFragmentDirections
                 .actionImagesGridFragmentToImageDetailsFragment(imageData, viewModel.imagesList.value!!.toTypedArray()))
         })
