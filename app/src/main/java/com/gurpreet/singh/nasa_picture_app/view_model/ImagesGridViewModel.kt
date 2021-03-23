@@ -1,6 +1,7 @@
 package com.gurpreet.singh.nasa_picture_app.view_model
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gurpreet.singh.nasa_picture_app.data.ImageData
@@ -14,7 +15,10 @@ class ImagesGridViewModel: ViewModel() {
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    var imagesList = MutableLiveData<List<ImageData>>()
+    private var _imagesList = MutableLiveData<List<ImageData>>()
+
+    val imagesList : LiveData<List<ImageData>>
+        get() = _imagesList
 
     init {
         getImageData()
@@ -27,7 +31,7 @@ class ImagesGridViewModel: ViewModel() {
             var getServerResponseDeferred = ImagesAPI.retrofitService.getImagesData()
             resultStatus = try {
                 var serverResponse = getServerResponseDeferred.await()
-                imagesList.value = serverResponse
+                _imagesList.value = serverResponse
                 "Success " + serverResponse.get(0)
 
             } catch (t:Throwable){
