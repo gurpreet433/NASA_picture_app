@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.collection.arraySetOf
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -27,11 +28,12 @@ class ImageDetailsFragment : Fragment() {
         val binding: FragmentImageDetailsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_image_details, container, false)
 
-        val adapter = ViewPagerAdapter ( args.imageDataList.toCollection(ArrayList()))
+        var imageDataList : ArrayList<ImageData> = args.imageDataList.toCollection(ArrayList())
+        val adapter = ViewPagerAdapter(imageDataList)
         binding.viewPager.adapter = adapter
-      // set view pager position
+        binding.viewPager.setCurrentItem(imageDataList.indexOf(args.imageData), false)
 
-        viewModelFactory = ImageDetailsViewModelFactory(args.imageData, args.imageDataList.toCollection(ArrayList()))
+        viewModelFactory = ImageDetailsViewModelFactory(args.imageData, imageDataList)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ImageDetailsViewModel::class.java)
 
         return binding.root

@@ -17,13 +17,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:onClick="@{()->clickListener.onClick(imageData)}"
         android:layout_margin="@dimen/margin_small"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/thumbnail_img"
-            android:layout_width="@dimen/image_width_thumbnail"
-            android:layout_height="@dimen/image_height"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_height_thumbnail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="fitXY"
