@@ -28,17 +28,17 @@ class ImagesGridViewModel: ViewModel() {
         lateinit var resultStatus : String
 
         coroutineScope.launch {
-            var getServerResponseDeferred = ImagesAPI.retrofitService.getImagesData()
+            var getServerResponseDeferred = ImagesAPI.retrofitService.getImagesDataAsync()
             resultStatus = try {
                 var serverResponse = getServerResponseDeferred.await()
                 _imagesList.value = serverResponse
-                "Success " + serverResponse.get(0)
+                "Success"
 
             } catch (t:Throwable){
                 "Failure" + t.message
             }
 
-            Log.i("apiresponse", resultStatus + "")
+            Log.i("api_response", resultStatus + "")
         }
     }
 }

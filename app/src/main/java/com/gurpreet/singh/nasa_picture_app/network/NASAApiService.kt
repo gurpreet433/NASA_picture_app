@@ -28,7 +28,7 @@ private val retrofit = Retrofit.Builder()
 
 interface NASAApiService {
     @GET("mockApis.github.io")
-    fun getImagesData(): Deferred<List<ImageData>>
+    fun getImagesDataAsync(): Deferred<List<ImageData>>
 }
 
 object ImagesAPI {
