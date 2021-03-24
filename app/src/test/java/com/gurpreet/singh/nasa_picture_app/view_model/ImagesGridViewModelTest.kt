@@ -1,6 +1,6 @@
 package com.gurpreet.singh.nasa_picture_app.view_model
 
-import androidx.test.core.app.ApplicationProvider
+
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import junit.framework.TestCase
 import org.junit.Test
@@ -12,7 +12,6 @@ class ImagesGridViewModelTest : TestCase() {
     @Test
     fun getImageData_ImagesGridViewModel() {
 
-        val getImageViewModel = ImagesGridViewModel()
 
     }
 }
